@@ -1,0 +1,5 @@
+ffmpeg-python==0.2.0
+Flask==3.0.3
+moviepy==1.0.3
+pillow==10.4.0
+Flask-Executor==1.0.0
