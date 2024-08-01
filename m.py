@@ -9,9 +9,17 @@ from PIL import Image
 from moviepy.editor import *
 from flask import Flask, jsonify, request
 from flask_executor import Executor
+from flask_sqlalchemy import SQLAlchemy
+
 
 BASE_DIR = os.path.join(os.path.dirname(__file__))
 app = Flask(__name__, static_folder=os.path.join(BASE_DIR, 'upload'))
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost:3306/mianshao'
+app.config['SQLALCHEMY_POOL_SIZE'] = 10
+app.config['SQLALCHEMY_POOL_TIMEOUT'] = 30
+app.config['SQLALCHEMY_POOL_RECYCLE'] = 240
+db = SQLAlchemy(app)
 
 
 def mkdir(path):
